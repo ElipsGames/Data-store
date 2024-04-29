@@ -1,0 +1,357 @@
+local datastoreservice = game:GetService("DataStoreService")
+local RebirthdataStore = datastoreservice:GetDataStore("DCA.test11")
+local MultiplyerdataStore = datastoreservice:GetDataStore("DC.test22")
+local MoneydataStore = datastoreservice:GetDataStore("DCA.test33")
+local KnowlagedataStore = datastoreservice:GetDataStore("DCA.test44")
+local HappinessdataStore = datastoreservice:GetDataStore("DCA.test55")
+local JobSkillldataStore = datastoreservice:GetDataStore("DCA.test66")
+local DevFamedataStore = datastoreservice:GetDataStore("DCA.test77")
+local InvestmentdataStore = datastoreservice:GetDataStore("DCA.test88")
+local RealEstatedataStore = datastoreservice:GetDataStore("DCA.test99")
+local CharismadataStore = datastoreservice:GetDataStore("DCA.test100")
+local ConnectionsdataStore = datastoreservice:GetDataStore("DCA.test111")
+--Above this sets data stores
+game.Players.PlayerAdded:Connect(function(Player) -- Load Data
+	
+	Player.CharacterAppearanceLoaded:Connect(function(character)
+		for i , v in pairs(character:GetDescendants()) do
+			if v:IsA("BasePart") or v:IsA("UnionOperation") or v:IsA("MeshPart") then
+				v.CastShadow = false
+			end
+		end
+	end)
+	
+-- Above disables the players shadow
+	local leaderstats = Instance.new("Folder")
+	leaderstats.Name = "leaderstats"
+	leaderstats.Parent = Player
+	
+	local Rebirths = Instance.new("IntValue")
+	Rebirths.Name = "Rebirths"
+	Rebirths.Parent = leaderstats
+	
+	local Invis = Instance.new("Folder")
+	Invis.Name = "Invis"
+	Invis.Parent = Player
+	
+	local Multiplyer = Instance.new("IntValue")
+	Multiplyer.Name = "Multiplyer"
+	Multiplyer.Parent = Invis
+	Multiplyer.Value = 1
+	
+	local Money = Instance.new("IntValue")
+	Money.Name = "Money"
+	Money.Parent = Invis
+	
+	local Knowlage = Instance.new("IntValue")
+	Knowlage.Name = "Knowlage"
+	Knowlage.Parent = Invis
+	
+	local Happiness = Instance.new("IntValue")
+	Happiness.Name = "Happiness"
+	Happiness.Parent = Invis
+	
+	local JobSkill = Instance.new("IntValue")
+	JobSkill.Name = "JobSkill"
+	JobSkill.Parent = Invis
+	
+	local DevFame = Instance.new("IntValue")
+	DevFame.Name = "DevFame"
+	DevFame.Parent = Invis
+	
+	local Investment = Instance.new("IntValue")
+	Investment.Name = "Investment"
+	Investment.Parent = Invis
+	
+	local RealEstate = Instance.new("IntValue")
+	RealEstate.Name = "RealEstate"
+	RealEstate.Parent = Invis
+	
+	local Charisma = Instance.new("IntValue")
+	Charisma.Name = "Charisma"
+	Charisma.Parent = Invis
+	
+	local Connections = Instance.new("IntValue")
+	Connections.Name = "Connections"
+	Connections.Parent = Invis
+	task.wait(5)
+	--Above this sets the values
+	--------------------------------------------------------------------------------------------------------
+	local data
+	local success, errormessage = pcall(function()
+		data = MoneydataStore:GetAsync(Player.UserId.."-Money")
+	end)
+	
+	if success then
+		Money.Value = data
+		if data == nil then
+			Money.Value = 1
+		else
+			Player.PlayerGui.Tutorial:Destroy()
+		end
+	end	--------------------------------------------------------------------------------------------------------
+	local data
+	local success, errormessage = pcall(function()
+		data = CharismadataStore:GetAsync(Player.UserId.."-Charisma")
+	end)
+
+	if success then
+		Charisma.Value = data
+		if data == nil then
+			Charisma.Value = 0
+		end
+	end
+	--------------------------------------------------------------------------------------------------------
+	local data
+	local success, errormessage = pcall(function()
+		data = InvestmentdataStore:GetAsync(Player.UserId.."-Investment")
+	end)
+
+	if success then
+		Investment.Value = data
+		if data == nil then
+			Investment.Value = 0
+		end
+	end
+	--------------------------------------------------------------------------------------------------------
+	local data
+	local success, errormessage = pcall(function()
+		data = JobSkillldataStore:GetAsync(Player.UserId.."-JobSkill")
+	end)
+
+	if success then
+		JobSkill.Value = data
+		if data == nil then
+			JobSkill.Value = 0
+		end
+	end
+	--------------------------------------------------------------------------------------------------------
+	local data
+	local success, errormessage = pcall(function()
+		data = HappinessdataStore:GetAsync(Player.UserId.."-Happiness")
+	end)
+
+	if success then
+		Happiness.Value = data
+		if data == nil then
+			Happiness.Value = 0
+		end
+	end
+	--------------------------------------------------------------------------------------------------------
+	local data
+	local success, errormessage = pcall(function()
+		data = KnowlagedataStore:GetAsync(Player.UserId.."-Knowlage")
+	end)
+
+	if success then
+		Knowlage.Value = data
+		if data == nil then
+			Knowlage.Value = 0
+		end
+	end
+	--------------------------------------------------------------------------------------------------------
+	local data
+	local success, errormessage = pcall(function()
+		data = ConnectionsdataStore:GetAsync(Player.UserId.."-Connections")
+	end)
+
+	if success then
+		Connections.Value = data
+		if data == nil then
+			Connections.Value = 0
+		end
+	end
+	--------------------------------------------------------------------------------------------------------
+	local data
+	local success, errormessage = pcall(function()
+		data = RealEstatedataStore:GetAsync(Player.UserId.."-RealEstate")
+	end)
+
+	if success then
+		RealEstate.Value = data
+		if data == nil then
+			RealEstate.Value = 0
+		end
+	end
+	--------------------------------------------------------------------------------------------------------
+	local data
+	local success, errormessage = pcall(function()
+		data = DevFamedataStore:GetAsync(Player.UserId.."-DevFame")
+	end)
+
+	if success then
+		DevFame.Value = data
+		if data == nil then
+			DevFame.Value = 0
+		end
+	end
+	--------------------------------------------------------------------------------------------------------
+	local data
+	local success, errormessage = pcall(function()
+		data = MultiplyerdataStore:GetAsync(Player.UserId.."-Multiplyer")
+	end)
+
+	if success then
+		Multiplyer.Value = data
+		if data == nil then
+			Multiplyer.Value = 1
+		end
+	end
+	--------------------------------------------------------------------------------------------------------
+	local data
+	local success, errormessage = pcall(function()
+		data = RebirthdataStore:GetAsync(Player.UserId.."-Rebirths")
+	end)
+
+	if success then
+		Rebirths.Value = data
+		if data == nil then
+			Rebirths.Value = 0
+		end
+	end
+	--------------------------------------------------------------------------------------------------------
+	--Above sets the players Values
+end)
+
+
+game.Players.PlayerRemoving:Connect(function(Plr) -- Save Data When The Player Leaves
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		MoneydataStore:SetAsync(Plr.UserId.."-Money", Plr.Invis.Money.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		CharismadataStore:SetAsync(Plr.UserId.."-Charisma", Plr.Invis.Charisma.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		InvestmentdataStore:SetAsync(Plr.UserId.."-Investment", Plr.Invis.Investment.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		JobSkillldataStore:SetAsync(Plr.UserId.."-JobSkill", Plr.Invis.JobSkill.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		HappinessdataStore:SetAsync(Plr.UserId.."-Happiness", Plr.Invis.JobSkill.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		KnowlagedataStore:SetAsync(Plr.UserId.."-Knowlage", Plr.Invis.Knowlage.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		ConnectionsdataStore:SetAsync(Plr.UserId.."-Connections", Plr.Invis.Connections.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		RealEstatedataStore:SetAsync(Plr.UserId.."-RealEstate", Plr.Invis.RealEstate.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		DevFamedataStore:SetAsync(Plr.UserId.."-DevFame", Plr.Invis.DevFame.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		MultiplyerdataStore:SetAsync(Plr.UserId.."-Multiplyer", Plr.Invis.Multiplyer.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		RebirthdataStore:SetAsync(Plr.UserId.."-Rebirths", Plr.leaderstats.Rebirths.Value)
+	end)
+end)
+--Above this saves the player stats upon leaving
+game.ReplicatedStorage.SaveB.Event:Connect(function(Plr) -- Save Data When A Bindable Event Is Fired
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		MoneydataStore:SetAsync(Plr.UserId.."-Money", Plr.Invis.Money.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		CharismadataStore:SetAsync(Plr.UserId.."-Charisma", Plr.Invis.Charisma.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		InvestmentdataStore:SetAsync(Plr.UserId.."-Investment", Plr.Invis.Investment.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		JobSkillldataStore:SetAsync(Plr.UserId.."-JobSkill", Plr.Invis.JobSkill.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		HappinessdataStore:SetAsync(Plr.UserId.."-Happiness", Plr.Invis.JobSkill.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		KnowlagedataStore:SetAsync(Plr.UserId.."-Knowlage", Plr.Invis.Knowlage.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		ConnectionsdataStore:SetAsync(Plr.UserId.."-Connections", Plr.Invis.Connections.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		RealEstatedataStore:SetAsync(Plr.UserId.."-RealEstate", Plr.Invis.RealEstate.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		DevFamedataStore:SetAsync(Plr.UserId.."-DevFame", Plr.Invis.DevFame.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		MultiplyerdataStore:SetAsync(Plr.UserId.."-Multiplyer", Plr.Invis.Multiplyer.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		RebirthdataStore:SetAsync(Plr.UserId.."-Rebirths", Plr.leaderstats.Rebirths.Value)
+	end)
+end)
+--Above this saves the player stats upon a Event
+game.ReplicatedStorage.SaveR.OnServerEvent:Connect(function(Plr) -- Save Data On Remote Event
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		MoneydataStore:SetAsync(Plr.UserId.."-Money", Plr.Invis.Money.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		CharismadataStore:SetAsync(Plr.UserId.."-Charisma", Plr.Invis.Charisma.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		InvestmentdataStore:SetAsync(Plr.UserId.."-Investment", Plr.Invis.Investment.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		JobSkillldataStore:SetAsync(Plr.UserId.."-JobSkill", Plr.Invis.JobSkill.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		HappinessdataStore:SetAsync(Plr.UserId.."-Happiness", Plr.Invis.JobSkill.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		KnowlagedataStore:SetAsync(Plr.UserId.."-Knowlage", Plr.Invis.Knowlage.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		ConnectionsdataStore:SetAsync(Plr.UserId.."-Connections", Plr.Invis.Connections.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		RealEstatedataStore:SetAsync(Plr.UserId.."-RealEstate", Plr.Invis.RealEstate.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		DevFamedataStore:SetAsync(Plr.UserId.."-DevFame", Plr.Invis.DevFame.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		MultiplyerdataStore:SetAsync(Plr.UserId.."-Multiplyer", Plr.Invis.Multiplyer.Value)
+	end)
+	--------------------------------------------------------------------------------------------------------
+	local success, errormessage = pcall(function()
+		RebirthdataStore:SetAsync(Plr.UserId.."-Rebirths", Plr.leaderstats.Rebirths.Value)
+	end)
+	--Above this saves the player stats upon a bindable Event
+end)
